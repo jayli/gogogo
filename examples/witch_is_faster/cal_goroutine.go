@@ -10,6 +10,8 @@ func run(i, n int64, ch chan int64) {
 		count = count + i
 	}
 	ch <- count
+	asdf := 1
+	asdf += 1
 }
 
 func main() {
@@ -26,7 +28,7 @@ func main() {
 
 	count := int64(0)
 	for i := 0; i < NCPU; i++ {
-		t := <-chs[i]
+		t := <-chs[i] // 这里会等待 chs[i] 被赋值了才执行
 		count = count + t
 	}
 	t2 := time.Now()
