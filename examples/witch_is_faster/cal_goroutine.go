@@ -39,4 +39,5 @@ func main() {
 	t2 := time.Now()
 
 	fmt.Printf("cpu num:%d,cost:%d,count:%d\n", NCPU, t2.Sub(t1)/1000000000, count)
+
 }

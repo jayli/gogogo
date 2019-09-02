@@ -16,3 +16,4 @@ int main(int argc, const char *argv[])
 	printf("cost:%d,count:%lld\n", second2 - second1, count);
 	return 0;
 }
+
