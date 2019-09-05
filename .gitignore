@@ -1,0 +1,7 @@
+__pycache__
+.DS_Store
+node_modules
+npm-debug.log
+*.swp
+.sw*
+.idea/*

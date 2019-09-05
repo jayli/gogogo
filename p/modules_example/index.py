@@ -5,7 +5,9 @@ import os
 sys.path.append(os.path.abspath("./module1")) 
 
 import ma
-
+# from MyClass import TestClass
+from module2.MyClass import TestClass
+import inherit.inherit
 
 #--------------------
 
@@ -19,7 +21,6 @@ def test_case_demo():
     print("----------------------")
     
 
-
 def sum_demo():
     """docstring for sum_demo"""
     return
@@ -30,5 +31,11 @@ def sum_demo():
 
 if __name__ == "__main__":
     test_case_demo()
-    sum_demo()
+    # sum_demo()
+    x = TestClass()
+    print(x.foo())
+    print(TestClass.__dict__)
+    print("#---------------------")
+    inherit.inherit.init()
+
     
