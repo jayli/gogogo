@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
+from dotmap import DotMap as CreateObject
+
 class A:       pass
 class B(A):    pass
 class C(A):    pass
@@ -13,16 +15,39 @@ def init():
     b = B()
     print(dir(type(F())))
 
-    objecttree(F())
+    object_tree(F())
 
-def classtree(cls, indent):
-    print("." * indent + cls.__name__)
+    print("----------------")
+
+    o = CreateObject({
+        'a':1,
+        'b':2,
+        'c':{
+            'd':3,
+            'f':{
+                'e':4
+            }
+        }
+    })
+
+    o.c.g = 5
+
+    print(F.__bases__)
+
+# def parse_classes_to_object(klass):
+#     klass_obj = {'name':klass.__name__, 'super_classes':{}}
+#     for super_classes in klass.__bases__:
+#         klass_obj = 
+
+
+def class_tree(cls, indent):
+    print(" " * indent , "└─", cls.__name__)
     for supcls in cls.__bases__:
-        classtree(supcls, indent + 3)
+        class_tree(supcls, indent + 3)
 
-def objecttree(obj):
+def object_tree(obj):
     print("Tree of", obj)
-    classtree(obj.__class__, 3)
+    class_tree(obj.__class__, 3)
 
 
 
