@@ -30,7 +30,7 @@ def init():
     o.c.g = 5
     print(dir(o))
     print("---------------->>")
-    get_full_class_obj_structure(2).pprint()
+    get_full_class_obj_structure(F).pprint()
     print("---------------->>")
 
     full_output = object_tree(F())
