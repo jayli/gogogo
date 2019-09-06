@@ -28,7 +28,7 @@ def init():
     })
 
     o.c.g = 5
-    print(dir(o))
+    print(o.__name__)
     print("---------------->>")
     # TODO 这里得到了完整的对象结构，下一步，将这个结构正确的树形图绘制出来
     get_full_class_obj_structure(F).pprint()
@@ -99,6 +99,19 @@ def class_tree(cls, level , full_output):
         class_tree(supcls, level + 1, full_output)
 
     return full_output
+
+'''
+# TODO
+def generate_full_output(obj, full_output):
+    line_output = []
+    
+    for item in dir(obj):
+        if type(item) is str:
+            line_output = []
+'''
+
+    
+
 
 def object_tree(obj):
     # Tree of obj
