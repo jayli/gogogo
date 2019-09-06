@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 
 from dotmap import DotMap as CreateObject
+import sys
 import re
 
 class A:       pass
@@ -12,11 +13,8 @@ class E:       pass
 class F(D, E): pass
 
 def init():
-    print('ok')
     b = B()
-    print(dir(type(F())))
-
-    print("----------------")
+    # print(dir(type(F())))
 
     o = CreateObject({
         'a':1,
@@ -30,24 +28,53 @@ def init():
     })
 
     o.c.g = 5
-
-    print(F.__bases__)
-
-    print("----------------")
+    print(dir(o))
+    print("---------------->>")
+    get_full_class_obj_structure(2).pprint()
+    print("---------------->>")
 
     full_output = object_tree(F())
-    print("---------------->>")
+    print(full_output)
 
     full_output = trim_tree_list(modify_node(0,full_output))
     show_the_tree(full_output)
 
+def get_full_class_obj_structure(klass):
+    root_obj = {}
+    try: 
+        root_obj[klass.__name__] = create_object_from_class(klass)
+        return CreateObject(root_obj)
+    except AttributeError:
+        print('入参应该是类', sys.exc_info()[0])
+    
 
+def create_object_from_class(klass):
+    # 如果是根类
+    if type(klass) is not type:
+        return klass
+
+    if klass.__base__ is object:
+        return 'object'
+
+    new_obj = CreateObject()
+    for item in klass.__bases__:
+        if type(item) is not type:
+            new_obj[str(item)] = " "
+        else:
+            new_obj[item.__name__] = create_object_from_class(item)
+
+    return new_obj
+
+# 清除掉首字符的空白符
 def trim_tree_list(full_output):
+    '''
     for arr in full_output:
         if re.match(r"^\s*$",arr[0]):
             arr.pop(0)
+    '''
     return full_output
 
+# 绘制Tree
 def show_the_tree(full_output):
     for item in full_output:
         print("".join(item))
@@ -73,7 +100,7 @@ def class_tree(cls, level , full_output):
     return full_output
 
 def object_tree(obj):
-    print("Tree of", obj)
+    # Tree of obj
     return class_tree(obj.__class__, 1, [])
 
 # line_number: 当前游标所在的行索引,0,1,2,3,4...
@@ -88,16 +115,7 @@ def modify_node(line_number, full_output):
         return full_output
 
     # 找到当前行所属的根节点位置（0,1,2,3...）
-    myroot = 0
-    index = 0
-    while index < line_number:
-        # 寻找根节点
-        tmp = full_output[index]
-        if len(tmp) == current_length - 1: # 找到根节点
-            myroot = index
-            break
-        index += 1
-    # print("root_node", myroot)
+    myroot = get_root_number(line_number,full_output)
 
     # 找到所属根节点后，修改连接线样式
     # TODO 这里有问题
@@ -115,4 +133,17 @@ def modify_node(line_number, full_output):
 
     return modify_node(line_number + 1, full_output)
 
+# 得到当前行所属的根节点位置 return 0,1,2,3...
+def get_root_number(line_number, full_output):
+    myroot = 0
+    current_length = len(full_output[line_number])
+    index = line_number - 1
+    while index > 0:
+        # 寻找根节点
+        tmp = full_output[index]
+        if len(tmp) == current_length - 1: # 找到根节点
+            myroot = index
+            break
+        index -= 1
+    return myroot
     
