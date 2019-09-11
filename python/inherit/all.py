@@ -2,7 +2,6 @@
 # -*- coding: utf-8 -*-
 # debugger_entry = /Users/bachi/jayli/gogogo/python/index.py
 
-import pdb
 from dotmap import DotMap as CreateObject
 import sys
 import re
@@ -57,7 +56,7 @@ def get_printable_list(obj):
     # jayli
     all_list = []
     for item in dir(obj):
-        gdb.set_trace()
+        __import__('pdb').set_trace()
         child_var = obj[item]
         if type(child_var) == type(CreateObject({})):
             child_node = get_printable_list(child_var)
