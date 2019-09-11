@@ -67,6 +67,7 @@ def get_printable_list(obj):
             "child":child_node,
         }
         all_list.append(parsed_obj)
+    gdb.set_trace()
     return all_list 
 
 def create_object_from_class(klass):
