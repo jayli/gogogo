@@ -57,6 +57,7 @@ def get_printable_list(obj):
     # jayli
     all_list = []
     for item in dir(obj):
+        gdb.set_trace()
         child_var = obj[item]
         if type(child_var) == type(CreateObject({})):
             child_node = get_printable_list(child_var)
@@ -67,7 +68,6 @@ def get_printable_list(obj):
             "child":child_node,
         }
         all_list.append(parsed_obj)
-    gdb.set_trace()
     return all_list 
 
 def create_object_from_class(klass):
