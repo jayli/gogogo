@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# debugger_entry = /Users/bachi/jayli/gogogo/python/index.py
+# debugger_entry = ../index.py
 
 from dotmap import DotMap as CreateObject
 import sys
@@ -36,12 +36,17 @@ def init():
     printable_list = get_printable_list(klass_obj)
     print(printable_list)
     print("---------------->>")
+    full_output = get_full_renderable_tree(printable_list)
+    print(full_output)
+    print("---------------->>")
 
+    '''
     full_output = object_tree(F())
     print(full_output)
 
     full_output = trim_tree_list(modify_node(0,full_output))
-    show_the_tree(full_output)
+    '''
+    # show_the_tree(full_output)
 
 def get_full_class_obj_structure(klass):
     root_obj = {}
@@ -53,10 +58,8 @@ def get_full_class_obj_structure(klass):
     return None
 
 def get_printable_list(obj):
-    # jayli
     all_list = []
     for item in dir(obj):
-        __import__('pdb').set_trace()
         child_var = obj[item]
         if type(child_var) == type(CreateObject({})):
             child_node = get_printable_list(child_var)
@@ -95,11 +98,30 @@ def trim_tree_list(full_output):
     '''
     return full_output
 
-# 绘制Tree
-def show_the_tree(full_output):
-    for item in full_output:
-        print("".join(item))
+# 从结构化好的树形对象绘制 Tree
+def get_renderable_tree(printable_list, level, full_output):
+    line_output = []
+
+    index = 1
+    if level <= 1:
+        # TODO printable_list.name 不存在
+        line_output = [" ", printable_list.name]
+    else:
+        while index < level:
+            line_output.append(" ")
+            index += 1
+        line_output.extend(["└", printable_list.name])
+
+    full_output.append(line_output)
+    for supstrcture in printable_list.child:
+        get_renderable_tree(supstrcture, level + 1, full_output)
+
     return full_output
+
+def get_full_renderable_tree(obj):
+    # Tree of obj
+    return get_renderable_tree(obj, 1, [])
+
 
 def class_tree(cls, level , full_output):
     line_output = []
@@ -129,8 +151,6 @@ def generate_full_output(obj, full_output):
         if type(item) is str:
             line_output = []
 '''
-
-    
 
 
 def object_tree(obj):
