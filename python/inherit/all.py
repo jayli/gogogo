@@ -36,18 +36,21 @@ def init():
     printable_list = get_printable_list(klass_obj)
     print(printable_list)
     print("---------------->>")
+    # TODO full_output 输出的结果还是有问题
     full_output = get_full_renderable_tree(printable_list)
     print(full_output)
     full_output = modify_node(0,full_output)
     print(full_output)
     print("---------------->>")
 
-    '''
-    full_output = object_tree(F())
-    print(full_output)
+    # 这里输出的是正确的
+    # ---------------
+    full_output_right = object_tree(F())
+    print(full_output_right)
 
-    full_output = modify_node(0,full_output)
-    '''
+    full_output_right = modify_node(0,full_output_right)
+    print(full_output_right)
+    # ---------------
     # show_the_tree(full_output)
 
 def get_full_class_obj_structure(klass):
@@ -110,6 +113,8 @@ def get_renderable_tree(printable_list, level, full_output):
     if type(printable_list['child']) == type([]):
         for supstrcture in printable_list['child']:
             get_renderable_tree(supstrcture, level + 1, full_output)
+    else:
+        line_output.append(printable_list['child'])
 
     return full_output
 
