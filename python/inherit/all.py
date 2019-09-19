@@ -38,13 +38,15 @@ def init():
     print("---------------->>")
     full_output = get_full_renderable_tree(printable_list)
     print(full_output)
+    full_output = modify_node(0,full_output)
+    print(full_output)
     print("---------------->>")
 
     '''
     full_output = object_tree(F())
     print(full_output)
 
-    full_output = trim_tree_list(modify_node(0,full_output))
+    full_output = modify_node(0,full_output)
     '''
     # show_the_tree(full_output)
 
@@ -89,32 +91,25 @@ def create_object_from_class(klass):
 
     return new_obj
 
-# 清除掉首字符的空白符
-def trim_tree_list(full_output):
-    '''
-    for arr in full_output:
-        if re.match(r"^\s*$",arr[0]):
-            arr.pop(0)
-    '''
-    return full_output
-
 # 从结构化好的树形对象绘制 Tree
 def get_renderable_tree(printable_list, level, full_output):
     line_output = []
 
     index = 1
-    if level <= 1:
+    if level == 1:
         # TODO printable_list.name 不存在
-        line_output = [" ", printable_list.name]
+        line_output = [" ", printable_list[0]['name']]
+        printable_list = printable_list[0]
     else:
         while index < level:
             line_output.append(" ")
             index += 1
-        line_output.extend(["└", printable_list.name])
+        line_output.extend(["└", printable_list['name']])
 
     full_output.append(line_output)
-    for supstrcture in printable_list.child:
-        get_renderable_tree(supstrcture, level + 1, full_output)
+    if type(printable_list['child']) == type([]):
+        for supstrcture in printable_list['child']:
+            get_renderable_tree(supstrcture, level + 1, full_output)
 
     return full_output
 
@@ -153,10 +148,12 @@ def generate_full_output(obj, full_output):
 '''
 
 
+# ---------------
 def object_tree(obj):
     # Tree of obj
     return class_tree(obj.__class__, 1, [])
 
+# ---------------
 # line_number: 当前游标所在的行索引,0,1,2,3,4...
 # full_output: 当前可视结构的全量数组
 # return: 返回修正之后的全量数组
