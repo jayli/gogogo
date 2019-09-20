@@ -34,24 +34,37 @@ def init():
     klass_obj = get_full_class_obj_structure(F)
     # TODO printable_list 已经正确的创建，下一步，将它正确的绘制出来
     printable_list = get_printable_list(klass_obj)
+    print('printable_list')
     print(printable_list)
     print("---------------->>")
-    # TODO full_output 输出的结果还是有问题
     full_output = get_full_renderable_tree(printable_list)
+    print('full_output')
     print(full_output)
     full_output = modify_node(0,full_output)
     print(full_output)
+    print_double_list(full_output)
     print("---------------->>")
 
     # 这里输出的是正确的
     # ---------------
+    '''
     full_output_right = object_tree(F())
     print(full_output_right)
 
     full_output_right = modify_node(0,full_output_right)
     print(full_output_right)
+    print_double_list(full_output_right)
+    '''
     # ---------------
     # show_the_tree(full_output)
+
+def print_double_list(lop):
+    for line in lop:
+        out_str = ''
+        for item in line:
+            out_str = out_str + item
+        print(out_str)
+    return None
 
 def get_full_class_obj_structure(klass):
     root_obj = {}
@@ -91,7 +104,6 @@ def create_object_from_class(klass):
             new_obj[str(item)] = " "
         else:
             new_obj[item.__name__] = create_object_from_class(item)
-
     return new_obj
 
 # 从结构化好的树形对象绘制 Tree
@@ -114,7 +126,13 @@ def get_renderable_tree(printable_list, level, full_output):
         for supstrcture in printable_list['child']:
             get_renderable_tree(supstrcture, level + 1, full_output)
     else:
-        line_output.append(printable_list['child'])
+        index = 1
+        end_line = []
+        while index < level + 1:
+            end_line.append(" ")
+            index += 1
+        end_line.extend(["└", printable_list['child']])
+        full_output.append(end_line)
 
     return full_output
 
@@ -123,6 +141,7 @@ def get_full_renderable_tree(obj):
     return get_renderable_tree(obj, 1, [])
 
 
+'''
 def class_tree(cls, level , full_output):
     line_output = []
     
@@ -142,21 +161,11 @@ def class_tree(cls, level , full_output):
 
     return full_output
 
-'''
-# TODO
-def generate_full_output(obj, full_output):
-    line_output = []
-    
-    for item in dir(obj):
-        if type(item) is str:
-            line_output = []
-'''
-
-
 # ---------------
 def object_tree(obj):
     # Tree of obj
     return class_tree(obj.__class__, 1, [])
+'''
 
 # ---------------
 # line_number: 当前游标所在的行索引,0,1,2,3,4...
