@@ -10,7 +10,7 @@ printable_original_treelist: [[' ', 'F'], [' ', '├', 'D'], [' ', ' ', '├', '
 printable_modified_treelist: [[' ', 'F'], [' ', '├', 'D'], [' ', '│', '├', 'B'],...]
 '''
 
-class TreeIt:
+class TreeIt(object):
     
     dotmap_obj = DotMap({}) # 要打印的原始列表
     formated_obj = DotMap({}) # 转换格式后的原始列表
