@@ -130,4 +130,3 @@ class TreeIt:
                 break
             index -= 1
         return myroot
-    
