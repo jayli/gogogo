@@ -17,22 +17,22 @@ class TreeIt:
     printable_original_treelist = [] # 可以直接输出的修饰前的列表
     printable_modified_treelist = [] # 可以直接输出的修饰后的列表
 
-    def __init__(self, dotmap_obj):
+    def __init__(this, dotmap_obj):
         """docstring for init"""
         if type(dotmap_obj) != DotMap:
-            self.dotmap_obj = DotMap(dotmap_obj)
+            this.dotmap_obj = DotMap(dotmap_obj)
         else:
-            self.dotmap_obj = dotmap_obj
-        self.formated_obj = self.get_formated_treelist(self.dotmap_obj)
-        self.printable_original_treelist = self.get_original_treelist(self.formated_obj)
-        self.printable_modified_treelist = self.get_modified_treelist(0, self.printable_original_treelist)
+            this.dotmap_obj = dotmap_obj
+        this.formated_obj = this.get_formated_treelist(this.dotmap_obj)
+        this.printable_original_treelist = this.get_original_treelist(this.formated_obj)
+        this.printable_modified_treelist = this.get_modified_treelist(0, this.printable_original_treelist)
 
-    def get_formated_treelist(self, obj):
+    def get_formated_treelist(this, obj):
         all_list = []
         for item in dir(obj):
             child_var = obj[item]
             if type(child_var) == type(DotMap({})):
-                child_node = self.get_formated_treelist(child_var)
+                child_node = this.get_formated_treelist(child_var)
             else:
                 child_node = child_var
             parsed_obj = {
@@ -43,8 +43,8 @@ class TreeIt:
         return all_list 
 
     # 打印
-    def print_tree(self):
-        lop = self.printable_modified_treelist
+    def print_tree(this):
+        lop = this.printable_modified_treelist
         for line in lop:
             out_str = ''
             for item in line:
@@ -53,7 +53,7 @@ class TreeIt:
         return None
 
     # 从结构化好的树形对象绘制 Tree
-    def get_original_tree(self, printable_list, level, full_output):
+    def get_original_tree(this, printable_list, level, full_output):
         line_output = []
 
         index = 1
@@ -70,7 +70,7 @@ class TreeIt:
         full_output.append(line_output)
         if type(printable_list['child']) == type([]):
             for supstrcture in printable_list['child']:
-                self.get_original_tree(supstrcture, level + 1, full_output)
+                this.get_original_tree(supstrcture, level + 1, full_output)
         else:
             index = 1
             end_line = []
@@ -82,16 +82,16 @@ class TreeIt:
 
         return full_output
 
-    def get_original_treelist(self, obj):
+    def get_original_treelist(this, obj):
         # Tree of obj
-        return self.get_original_tree(obj, 1, [])
+        return this.get_original_tree(obj, 1, [])
 
 
     # ---------------
     # line_number: 当前游标所在的行索引,0,1,2,3,4...
     # full_output: 当前可视结构的全量数组
     # return: 返回修正之后的全量数组
-    def get_modified_treelist(self, line_number, full_output):
+    def get_modified_treelist(this, line_number, full_output):
         # 当前数组长度, 1,2,3,4...
         current_length = len(full_output[line_number])
 
@@ -100,7 +100,7 @@ class TreeIt:
             return full_output
 
         # 找到当前行所属的根节点位置（0,1,2,3...）
-        myroot = self.get_root_number(line_number,full_output)
+        myroot = this.get_root_number(line_number,full_output)
 
         # 找到所属根节点后，修改连接线样式
         tdex = myroot + 1
@@ -115,10 +115,10 @@ class TreeIt:
             else: pass
             tdex += 1
 
-        return self.get_modified_treelist(line_number + 1, full_output)
+        return this.get_modified_treelist(line_number + 1, full_output)
 
     # 得到当前行所属的根节点位置 return 0,1,2,3...
-    def get_root_number(self, line_number, full_output):
+    def get_root_number(this, line_number, full_output):
         myroot = 0
         current_length = len(full_output[line_number])
         index = line_number - 1
