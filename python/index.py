@@ -1,8 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-import inherit.all as Inherit
+import inherit.all as InheritExample
 
 if __name__ == "__main__":
-    print("#---------------------")
-    Inherit.init()
+    InheritExample.init()
