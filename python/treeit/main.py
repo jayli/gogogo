@@ -62,9 +62,7 @@ class TreeIt(object):
             line_output = [" ", printable_list[0]['name']]
             printable_list = printable_list[0]
         else:
-            while index < level:
-                line_output.append(" ")
-                index += 1
+            line_output = this.generate_placeholders(level)
             line_output.extend(["└", printable_list['name']])
 
         full_output.append(line_output)
@@ -72,15 +70,19 @@ class TreeIt(object):
             for supstrcture in printable_list['child']:
                 this.get_original_tree(supstrcture, level + 1, full_output)
         else:
-            index = 1
-            end_line = []
-            while index < level + 1:
-                end_line.append(" ")
-                index += 1
+            end_line = this.generate_placeholders(level + 1)
             end_line.extend(["└", printable_list['child']])
             full_output.append(end_line)
 
         return full_output
+
+    def generate_placeholders(this, No, placeholder = " "):
+        index = 1
+        tmp_line = []
+        while index < No:
+            tmp_line.append(placeholder)
+            index += 1
+        return tmp_line
 
     def get_original_treelist(this, obj):
         # Tree of obj
