@@ -12,8 +12,8 @@ printable_modified_treelist: [[' ', 'F'], [' ', '├', 'D'], [' ', '│', '├',
 
 class TreeIt(object):
     
-    dotmap_obj = DotMap({}) # 要打印的原始列表
-    formated_obj = DotMap({}) # 转换格式后的原始列表
+    dotmap_obj                  = DotMap({}) # 要打印的原始列表
+    formated_obj                = DotMap({}) # 转换格式后的原始列表
     printable_original_treelist = [] # 可以直接输出的修饰前的列表
     printable_modified_treelist = [] # 可以直接输出的修饰后的列表
 
@@ -23,7 +23,7 @@ class TreeIt(object):
             this.dotmap_obj = DotMap(dotmap_obj)
         else:
             this.dotmap_obj = dotmap_obj
-        this.formated_obj = this.get_formated_treelist(this.dotmap_obj)
+        this.formated_obj                = this.get_formated_treelist(this.dotmap_obj)
         this.printable_original_treelist = this.get_original_treelist(this.formated_obj)
         this.printable_modified_treelist = this.get_modified_treelist(0, this.printable_original_treelist)
 
