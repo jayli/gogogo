@@ -21,8 +21,8 @@ def init():
     print("---------------->>")
 
     o = TreeitUtil.TreeIt(klass_dotmap)
-    o.print_tree()
-
+    o.print_tree() 
+    
 def parse_class_obj_to_dotmap(klass):
     root_obj = {}
     try: 
