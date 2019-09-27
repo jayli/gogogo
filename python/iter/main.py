@@ -18,7 +18,15 @@ def init():
     #----------fibonacci----------
     fibonacci(10)
 
+    #----------------------------
+    test1()
+
     return None
+
+def test1():
+    """docstring for test1"""
+    info = [1,2,3,4,5,6,7,8]
+    print(list(range(1,11)))
     
 def fibonacci(n):
     """docstring for fibonacci"""
