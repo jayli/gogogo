@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 # debugger_entry = ../index.py
 
+from turtle import * 
+
 def init():
     """docstring for init"""
     print("---------------->>")
@@ -20,6 +22,9 @@ def init():
 
     #----------------------------
     test1()
+
+    # 图形编程
+    # test_turtle()
 
     return None
 
@@ -43,6 +48,24 @@ def fibonacci(n):
         conter += 1
     
     print(fib_list)
+
+    return None
+    
+def test_turtle():
+    def drawStar(x, y):
+        pu()
+        goto(x, y)
+        pd()
+        # set heading: 0
+        seth(0)
+        for i in range(5):
+            fd(40)
+            rt(144)
+
+    for x in range(0, 250, 50):
+        drawStar(x, 0)
+
+    done()
 
     return None
     
