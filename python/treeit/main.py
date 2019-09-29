@@ -28,6 +28,7 @@ class TreeIt(object):
         this.printable_modified_treelist = this.get_modified_treelist(0, this.printable_original_treelist)
 
     def get_formated_treelist(this, obj):
+        __import__('pdb').set_trace()
         all_list = []
         for item in dir(obj):
             child_var = obj[item]

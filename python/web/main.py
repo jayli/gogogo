@@ -12,7 +12,7 @@ def init():
     resu = request.urlopen("http://www.baidu.com", data=None, timeout=10)
     data = resu.read().decode()
 
-    # print(data)
+    print(data)
 
     s = socket.socket()
     host = socket.gethostname()
