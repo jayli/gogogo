@@ -17,10 +17,10 @@ def init():
         except StopIteration:
             break
 
-    #----------fibonacci----------
+    #----------fibonacci---------- {{{
     fibonacci(10)
 
-    #----------------------------
+    #---------------------------- }}}
     test1()
 
     # 图形编程
