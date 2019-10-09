@@ -8,7 +8,6 @@ def init():
     return None
 
 
-
 def lazy_sum(*args):
     """docstring for sum"""
     sum = 0

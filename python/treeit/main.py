@@ -12,26 +12,35 @@ printable_modified_treelist: [[' ', 'F'], [' ', '├', 'D'], [' ', '│', '├',
 
 class TreeIt(object):
 
-    dotmap_obj                  = DotMap({}) # 要打印的原始列表
-    formated_obj                = DotMap({}) # 转换格式后的原始列表
+    dotmap_obj                  = {} # DotMap({}) # 要打印的原始列表
+    formated_obj                = {} # DotMap({}) # 转换格式后的原始列表
     printable_original_treelist = []         # 可以直接输出的修饰前的列表
     printable_modified_treelist = []         # 可以直接输出的修饰后的列表
 
     def __init__(this, dotmap_obj):
         """docstring for init"""
-        if type(dotmap_obj) != DotMap:
-            this.dotmap_obj = DotMap(dotmap_obj)
+        # if type(dotmap_obj) != DotMap:
+        #     this.dotmap_obj = DotMap(dotmap_obj)
+        # else:
+        #     this.dotmap_obj = dotmap_obj
+
+        if type(dotmap_obj) != dict:
+            this.dotmap_obj = dotmap_obj
         else:
             this.dotmap_obj = dotmap_obj
+
         this.formated_obj                = this.get_formated_treelist(this.dotmap_obj)
         this.printable_original_treelist = this.get_original_treelist(this.formated_obj)
         this.printable_modified_treelist = this.get_modified_treelist(0, this.printable_original_treelist)
 
     def get_formated_treelist(this, obj):
         all_list = []
-        for item in dir(obj):
+        for item in obj:
+            # 从这里走查，Debug 还有响应不及时的问题
+            __import__('pdb').set_trace()
             child_var = obj[item]
-            if type(child_var) == type(DotMap({})):
+            # if type(child_var) == type(DotMap({})):
+            if type(child_var) == dict:
                 child_node = this.get_formated_treelist(child_var)
             else:
                 child_node = child_var
@@ -40,7 +49,7 @@ class TreeIt(object):
                 "child":child_node,
             }
             all_list.append(parsed_obj)
-        return all_list 
+        return all_list
 
     # 打印
     def print_tree(this):

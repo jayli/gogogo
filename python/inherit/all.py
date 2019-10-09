@@ -17,17 +17,21 @@ def init():
 
     klass_dotmap = parse_class_obj_to_dotmap(F)
     print('klass_dotmap')
-    klass_dotmap.pprint(pformat='json')
+    print(repr(klass_dotmap))
+    print(json.dumps(klass_dotmap, sort_keys=True, indent=2))
+    # klass_dotmap.pprint(pformat='json')
+
     print("---------------->>")
 
     o = TreeitUtil.TreeIt(klass_dotmap)
-    o.print_tree() 
-    
+    o.print_tree()
+
 def parse_class_obj_to_dotmap(klass):
     root_obj = {}
-    try: 
+    try:
         root_obj[klass.__name__] = create_object_from_class(klass)
-        return DotMap(root_obj)
+        return root_obj
+        # return DotMap(root_obj)
     except AttributeError:
         print('入参应该是类', sys.exc_info()[0])
     return None
@@ -40,7 +44,8 @@ def create_object_from_class(klass):
     if klass.__base__ is object:
         return 'object'
 
-    new_obj = DotMap()
+    # new_obj = DotMap()
+    new_obj = {}
     for item in klass.__bases__:
         if type(item) is not type:
             new_obj[str(item)] = " "
