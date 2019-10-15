@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# -*- coding: utf-8 -*-
 
 import socket
 from urllib.parse import urlparse
@@ -19,7 +20,6 @@ class ProxyHandler(BaseHTTPRequestHandler):
     def do_GET(self):
         # 解析 GET 请求信息
         uri = urlparse(self.path)
-        __import__('pdb').set_trace()
         print(uri)
         scheme, host, path = uri.scheme, uri.hostname, uri.path
         host_ip = socket.gethostbyname(host)

@@ -37,7 +37,6 @@ class TreeIt(object):
         all_list = []
         for item in obj:
             # 从这里走查，Debug 还有响应不及时的问题
-            __import__('pdb').set_trace()
             child_var = obj[item]
             # if type(child_var) == type(DotMap({})):
             if type(child_var) == dict:
