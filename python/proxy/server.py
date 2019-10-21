@@ -1,29 +1,24 @@
 #!/usr/bin/env python3
-
 # -*- coding: utf-8 -*-
 
 import http.server
 import socketserver
+from urllib.parse import urlparse
 
-class Handler(http.server.BaseHTTPRequestHandler):
+class LocalFileHandler(http.server.BaseHTTPRequestHandler):
     def do_GET(self):
-        __import__('pdb').set_trace()
         uri = urlparse(self.path)
         print(uri)
-        self.wfile.write("123")
+        self.wfile.write(b"hello world")
 
 def main():
-    """docstring for main"""
     Port = 3000
 
-    # Handler = http.server.SimpleHTTPRequestHandler
-
     try:
-        server = http.server.HTTPServer(("", Port), Handler)
+        server = http.server.HTTPServer(("", Port), http.server.SimpleHTTPRequestHandler)
         server.serve_forever()
     except KeyboardInterrupt:
         server.socket.close()
-
 
 if __name__ == '__main__':
     main()
