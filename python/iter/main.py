@@ -32,13 +32,13 @@ def test1():
     """docstring for test1"""
     info = [1,2,3,4,5,6,7,8]
     print(list(range(1,11)))
-    
+
 def fibonacci(n):
     """docstring for fibonacci"""
 
     a , b , conter = 0 , 1  ,0
     fib_list = [0, 1]
-    
+
     while conter <= n:
         if conter < 2:
             conter += 1
@@ -46,11 +46,11 @@ def fibonacci(n):
         else: pass
         fib_list.append(fib_list[conter - 2] + fib_list[conter - 1])
         conter += 1
-    
+
     print(fib_list)
 
     return None
-    
+
 def test_turtle():
     def drawStar(x, y):
         pu()
@@ -68,4 +68,4 @@ def test_turtle():
     done()
 
     return None
-    
+
