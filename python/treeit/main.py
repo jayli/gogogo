@@ -1,8 +1,6 @@
 #!/usr/bin/env python3
 # debugger_entry = ../index.py
 
-from dotmap import DotMap as DotMap
-
 '''
 dotmap_obj: {'F':{'D':{'B': 'object'}...}}
 formated_obj: [{'name': 'F', 'child': [{'name': 'D', 'child': 'object'}]}]
@@ -11,11 +9,10 @@ printable_modified_treelist: [[' ', 'F'], [' ', '├', 'D'], [' ', '│', '├',
 '''
 
 class TreeIt(object):
-
-    dotmap_obj                  = {} # DotMap({}) # 要打印的原始列表
-    formated_obj                = {} # DotMap({}) # 转换格式后的原始列表
-    printable_original_treelist = []         # 可以直接输出的修饰前的列表
-    printable_modified_treelist = []         # 可以直接输出的修饰后的列表
+    dotmap_obj                  = {}  # 要打印的原始列表
+    formated_obj                = {}  # 转换格式后的原始列表
+    printable_original_treelist = []  # 可以直接输出的修饰前的列表
+    printable_modified_treelist = []  # 可以直接输出的修饰后的列表
 
     def __init__(this, dotmap_obj):
         """docstring for init"""

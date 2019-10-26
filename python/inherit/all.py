@@ -2,7 +2,6 @@
 # -*- coding: utf-8 -*-
 # debugger_entry = ../index.py
 
-from dotmap import DotMap as DotMap
 from treeit import main as TreeitUtil
 import sys, json
 
