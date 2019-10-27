@@ -24,7 +24,10 @@ def get_listdir(path="."):
     }
 
     a = os.scandir(path)
-    __import__('pdb').set_trace()
+    print("-------")
+    for item in a:
+        print(item.name)
+    print("-------")
     pass
 
     # for item in os.listdir(path):
