@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # debugger_entry = ../index.py
 
-from turtle import * 
+from turtle import *
 
 def init():
     """docstring for init"""
