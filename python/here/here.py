@@ -33,9 +33,10 @@ class HereProxyHandler(http.server.BaseHTTPRequestHandler):
             date_time = str(time.time())
             body = ("Date time: " + date_time).encode("utf-8")
             length = str(len(body))
+            __import__('pdb').set_trace()
+            self.send_response(HTTPStatus.OK)
             self.send_header("Content-type", "text/plain")
             self.send_header("Content-Length", length)
-            self.send_response(HTTPStatus.OK)
             self.end_headers()
             self.wfile.write(body)
             pass
