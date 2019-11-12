@@ -64,6 +64,7 @@ def print_dir_list(it):
             print(next(it))
         except StopIteration:
             break
+    return None
 
 def trim(msg=""):
     return re.sub(r'(^\s+|\s+$)',"", msg)
