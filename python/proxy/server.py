@@ -13,7 +13,6 @@ class LocalFileHandler(http.server.BaseHTTPRequestHandler):
 
 def main():
     Port = 3000
-
     try:
         server = http.server.HTTPServer(("", Port), http.server.SimpleHTTPRequestHandler)
         server.serve_forever()
