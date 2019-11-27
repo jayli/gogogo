@@ -22,7 +22,6 @@ class ProxyHandler(BaseHTTPRequestHandler):
         uri = urlparse(self.path)
         print(uri)
         scheme, host, path = uri.scheme, uri.hostname, uri.path
-        __import__('pdb').set_trace()
         host_ip = socket.gethostbyname(host)
         port = 443 if scheme == "https" else 80
 

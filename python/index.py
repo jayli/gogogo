@@ -6,6 +6,7 @@ import iter.main as IterExample
 import decorator.main as DecoratorExample
 import treeit.tree as Tree
 # import web.main as WebExample
+import dump.example as DumpExample
 
 if __name__ == "__main__":
     InheritExample.init()
@@ -13,3 +14,4 @@ if __name__ == "__main__":
     #WebExample.init()
     DecoratorExample.init()
     Tree.init()
+    DumpExample.init()
