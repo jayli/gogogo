@@ -8,6 +8,8 @@ import treeit.tree as Tree
 # import web.main as WebExample
 import dump.example as DumpExample
 
+import guiexp.main as GUIexp
+
 if __name__ == "__main__":
     InheritExample.init()
     IterExample.init()
@@ -15,3 +17,7 @@ if __name__ == "__main__":
     DecoratorExample.init()
     Tree.init()
     DumpExample.init()
+
+    print('================================')
+
+    GUIexp.entry()
