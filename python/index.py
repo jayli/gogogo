@@ -17,7 +17,7 @@ if __name__ == "__main__":
     DecoratorExample.init()
     Tree.init()
     DumpExample.init()
+    GUIexp.entry()
 
     print('================================')
 
-    GUIexp.entry()

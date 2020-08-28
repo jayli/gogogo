@@ -4,11 +4,18 @@
 # https://github.com/flatplanet/Intro-To-TKinter-Youtube-Course
 # debugger_entry = ../index.py
 
-import tkinter
+import tkinter as tk
 
 def entry():
     """docstring for entry"""
     print('hello world')
 
-    top = tkinter.Tk()
-    top.mainloop()
+    root = Root()
+    root.mainloop()
+
+class Root(tk.Tk):
+    def __init__(self):
+        super().__init__()
+        self.lable = tk.Label(self, text="hello")
+        self.lable.pack()
+        
