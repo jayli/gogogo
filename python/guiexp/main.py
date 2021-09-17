@@ -16,6 +16,5 @@ def entry():
 class Root(tk.Tk):
     def __init__(self):
         super().__init__()
-        self.lable = tk.Label(self, text="hello")
+        self.lable = tk.Label(self, text="-----------------hello----------------")
         self.lable.pack()
-        
