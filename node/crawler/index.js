@@ -2,7 +2,13 @@
 const puppeteer = require('puppeteer');
 
 (async function(){
-  const browser = await puppeteer.launch();
+  const browser = await puppeteer.launch({
+    headless: false,   //有浏览器界面启动
+    args: [            //启动 Chrome 的参数，详见上文中的介绍
+      '–no-sandbox',
+      '--window-size=1280,960'
+    ],
+  });
   const page = await browser.newPage();
   browser.on('targetchanged', async () => {
     console.log(browser.target().url())
@@ -18,13 +24,13 @@ const puppeteer = require('puppeteer');
       let passWordInput = await page.mainFrame().$('#fm-login-password')
       let loginButton = await page.mainFrame().$('button.password-login')
 
-      await userNameInput.type("", {delay: 100})
-      await passWordInput.type("", {delay: 100})
+      await userNameInput.type("", {delay: 20})
+      await passWordInput.type("", {delay: 20})
       await loginButton.click()
-      console.log('------------------------------------')
-      page.evaluate(() => {
-        window.open('https://www.taobao.com')
-      })
+      console.log('--------------需要处理滑块----------------------')
+      // page.evaluate(() => {
+      //   window.open('https://www.taobao.com')
+      // })
 
     }
 
