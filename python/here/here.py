@@ -57,6 +57,7 @@ class HereProxyHandler(http.server.BaseHTTPRequestHandler):
         filepath = self.directory + self.path
         return filepath
 
+
 def print_dir_list(it):
     print('---')
     while True:

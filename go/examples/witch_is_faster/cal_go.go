@@ -12,5 +12,4 @@ func main() {
 	}
 	t2 := time.Now()
 	fmt.Printf("cost:%d,count:%d\n", t2.Sub(t1)/1000000000, count)
-
 }
