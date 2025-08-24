@@ -1,0 +1,12 @@
+/Users/hfy/jayli/gogogo/rust/get-select/target/debug/deps/cocoa-8dbecbd9d71c8254.d: /Users/hfy/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/cocoa-0.22.0/src/lib.rs /Users/hfy/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/cocoa-0.22.0/src/appkit.rs /Users/hfy/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/cocoa-0.22.0/src/base.rs /Users/hfy/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/cocoa-0.22.0/src/foundation.rs /Users/hfy/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/cocoa-0.22.0/src/quartzcore.rs /Users/hfy/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/cocoa-0.22.0/src/macros.rs
+
+/Users/hfy/jayli/gogogo/rust/get-select/target/debug/deps/libcocoa-8dbecbd9d71c8254.rlib: /Users/hfy/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/cocoa-0.22.0/src/lib.rs /Users/hfy/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/cocoa-0.22.0/src/appkit.rs /Users/hfy/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/cocoa-0.22.0/src/base.rs /Users/hfy/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/cocoa-0.22.0/src/foundation.rs /Users/hfy/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/cocoa-0.22.0/src/quartzcore.rs /Users/hfy/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/cocoa-0.22.0/src/macros.rs
+
+/Users/hfy/jayli/gogogo/rust/get-select/target/debug/deps/libcocoa-8dbecbd9d71c8254.rmeta: /Users/hfy/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/cocoa-0.22.0/src/lib.rs /Users/hfy/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/cocoa-0.22.0/src/appkit.rs /Users/hfy/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/cocoa-0.22.0/src/base.rs /Users/hfy/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/cocoa-0.22.0/src/foundation.rs /Users/hfy/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/cocoa-0.22.0/src/quartzcore.rs /Users/hfy/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/cocoa-0.22.0/src/macros.rs
+
+/Users/hfy/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/cocoa-0.22.0/src/lib.rs:
+/Users/hfy/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/cocoa-0.22.0/src/appkit.rs:
+/Users/hfy/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/cocoa-0.22.0/src/base.rs:
+/Users/hfy/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/cocoa-0.22.0/src/foundation.rs:
+/Users/hfy/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/cocoa-0.22.0/src/quartzcore.rs:
+/Users/hfy/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/cocoa-0.22.0/src/macros.rs:
