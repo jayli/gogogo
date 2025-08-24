@@ -1,5 +1,0 @@
-cargo:rustc-link-search=native=/Users/hfy/jayli/gogogo/rust/get-select/event-bridge
-cargo:rustc-link-lib=dylib=eventbridge
-cargo:rustc-link-lib=framework=Foundation
-cargo:rustc-link-lib=framework=AppKit
-cargo:rustc-link-lib=framework=ApplicationServices
